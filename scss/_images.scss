@@ -1,0 +1,16 @@
+img {
+  height: auto;
+  margin: 0 auto;
+}
+
+figure {
+
+  img {
+    display: inline-block;
+  }
+
+  figcaption {
+    font-size: $font-small;
+    color: $gray;
+  }
+}

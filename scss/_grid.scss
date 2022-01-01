@@ -1,0 +1,40 @@
+@use "sass:math";
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @for $i from 1 through $columns {
+    .col-#{$i} {
+      flex: 0 0 (math.div(100%, $columns) * $i);
+      justify-content: space-between;
+
+      > * {
+        padding-right: $gutter;
+      }
+    }
+  }
+
+  .last-in-row {
+    //border: 1px solid red;
+    > * {
+      padding-right: 0;
+    }
+  }
+
+  @media (max-width: $breakpoint) {
+    @for $i from 1 through $columns {
+      .col-#{$i} {
+        flex: 0 0 100%;
+      }
+    }
+
+    .last-in-row {
+      //border: 1px solid green;
+      > * {
+        padding-right: $gutter;
+      }
+    }
+  }
+}

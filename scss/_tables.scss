@@ -1,0 +1,30 @@
+@use "sass:math";
+
+table {
+  border: 1px solid rgba($black, .6);
+  border-collapse: collapse;
+
+  tr {
+    border-bottom: (.06 * $font-default) solid rgba($black, .6);
+
+    td, th {
+      padding: math.div($font-default, 2) $font-default;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      font-weight: 600;
+      background-color: $gray;
+      color: $white;
+    }
+  }
+
+  @each $class, $name in $colors {
+    &.table-#{$class} {
+      th {
+        background-color: $name;
+      }
+    }
+  }
+}

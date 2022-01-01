@@ -1,0 +1,108 @@
+@use "sass:math";
+
+* {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+  vertical-align: baseline;
+}
+
+body {
+  @extend %sans-serif;
+  margin: 0;
+  background: $white;
+  color: rgba($black, .9);
+  padding: $font-default;
+}
+
+main, nav, footer {
+  max-width: $body-width;
+  margin: 0 auto;
+}
+
+main {
+  min-height: 500px;
+}
+
+p, ul, ol, blockquote, hr, pre, table, form, fieldset, figure, div, .row {
+  margin-bottom: $line-height * $font-default;
+}
+
+blockquote, div, p {
+  display: flow-root; // modern clear fix
+}
+
+article, header {
+  padding: 2.4 * $font-default;
+}
+
+ol, ul {
+  //margin-left: $line-height * $font-default;
+  margin-left: 1.4 * $font-default;
+
+  li {
+    vertical-align: top;
+
+    ul, ol {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: $breakpoint) {
+  body {
+    padding: $font-default (math.div($font-default, 2));
+  }
+
+  article {
+    border: 0;
+    padding: $font-default;
+  }
+
+  header, footer {
+    padding: $font-default;
+  }
+
+  nav img {
+    display: none;
+  }
+
+  textarea, input, select {
+    min-width: 0;
+  }
+
+  fieldset {
+    // The following line fixes fieldset overflow in webkit browsers.
+    // For further info see:
+    // http://stackoverflow.com/questions/17408815/fieldset-resizes-wrong-appears-to-have-unremovable-min-width-min-content/17863685#17863685
+    min-width: 0;
+
+    * {
+      flex-grow: 1;
+      page-break-before: auto;
+    }
+  }
+
+  section {
+    width: auto;
+  }
+
+  x:-moz-any-link {
+    // The following lines fixes fieldset overflow bug in Firefox browser.
+    // For further info, see:
+    // http://stackoverflow.com/questions/17408815/fieldset-resizes-wrong-appears-to-have-unremovable-min-width-min-content/17863685#17863685
+    // Changed the original `@-moz-document url-prefix` code to simpler
+    // `-moz-any-link` hack so W3C CSS validator will pass it.
+    display: table-cell;
+  }
+}
+
+@media print {
+  nav {
+    display: none;
+  }
+}

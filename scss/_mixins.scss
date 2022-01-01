@@ -1,0 +1,18 @@
+@use "sass:math";
+
+@mixin icon($symbol: "\f015", $size : 1, $float: none, $color: $black ) {
+  &::before {
+    content: $symbol;
+    font-family: 'Font Awesome 5 Free';
+    font-size: $font-default * $size;
+    color: $color;
+    font-weight: bold;
+    font-style: normal;
+    float: $float;
+    @if ($float == right) {
+      margin-left: math.div($font-default, 2);
+    } @else {
+      margin-right: math.div($font-default, 2);
+    }
+  }
+}

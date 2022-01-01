@@ -1,0 +1,32 @@
+@use "sass:math";
+
+@mixin blockquote($color: darkgray) {
+  color: darken($color, 10%);
+  @if ($color != darkgray) {
+    background-color: rgba($color, 0.1);
+  }
+  border-left: solid (.12 * $font-default) $color;
+  padding: (math.div($font-default, 2)) $font-default;
+  //font-style: italic;
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+blockquote {
+  @include blockquote();
+}
+
+@each $class, $name in $colors {
+  .bq-#{$class} {
+    @include blockquote($name);
+
+    @each $iconName, $icon in $icons {
+      &-#{$iconName} {
+        @extend .bq-#{$class};
+        @include icon($icon, 2, right, $name);
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+// text-xxx
+@each $class, $name in $colors {
+  .text-#{$class} {
+    color: $name;
+  }
+}
+
+// box-xxx
+@each $class, $name in $colors {
+  .box-#{$class} {
+    padding: $font-default;
+    border: solid 1px $name;
+    background-color: rgba($name, .1);
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+
+    @each $iconName, $icon in $icons {
+      &-#{$iconName} {
+        @extend .box-#{$class};
+        @include icon($icon, 2, right, $name);
+      }
+    }
+  }
+}
+
+// icons
+@each $class, $name in $colors {
+  @each $iconName, $icon in $icons {
+    .icon-#{$class}-#{$iconName} {
+      @include icon($icon, 2, right, $name);
+    }
+  }
+}
+
+// progress-xxx
+@mixin gradient($color: $green) {
+  min-height: 2 * $font-default;
+  border: 1px solid $color;
+  background-color: $color;
+  $alpha: .25;
+  background-image: linear-gradient(-45deg, rgba(255, 255, 255, $alpha) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, $alpha) 50%, rgba(255, 255, 255, $alpha) 75%, transparent 75%, transparent);
+  background-size: 1rem 1rem;
+  text-align: center;
+  animation: slide 20s linear infinite;
+  color: $white;
+}
+
+@keyframes slide {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 50rem 0;
+  }
+}
+
+@each $class, $name in $colors {
+  .progress-#{$class} {
+    @include gradient($name);
+  }
+}
+
+@for $i from 0 through 20 {
+  .margin-#{$i} {
+    > * {
+      margin-bottom: $i + px;
+    }
+  }
+}

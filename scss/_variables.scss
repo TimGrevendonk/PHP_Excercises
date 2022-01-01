@@ -1,0 +1,74 @@
+@use "sass:math";
+
+// font sizes
+$font-default: 14px;
+$font-small: $font-default * .85;
+$line-height: 1.65;
+
+// max width body
+$body-width: 940px;
+
+// fonts
+$sans-serif: system-ui, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
+%sans-serif {
+  font-family: $sans-serif;
+  font-size: $font-default;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+// Font Awesome icons
+$icons: (
+        "home": "\f015",
+        "pen" : "\f305",
+        "question" : "\f128",
+        "question-circle" : "\f059",
+        "info": "\f129",
+        "info-circle": "\f05a",
+        "exclamation": "\f12a",
+        "exclamation-circle": "\f06a",
+        "dice" : "\f523",
+        "key" : "\f084",
+        "mars": "\f222",
+        "male": "\f183",
+        "venus": "\f221",
+        "female": "\f182",
+        "venus-mars": "\f228",
+);
+
+// breackpoint
+$breakpoint: 500px;
+
+// nav height
+$nav-height: 50px;
+
+// grid
+$columns: 12;
+$gutter: math.div($font-default, 2);
+
+// colors
+$black: #000;
+$white: #fff;
+$gray: #595959;
+$blue: #009cab; // TM blue
+$red: #dc3545;
+$orange: #f04c25; // TM orange
+$green: #28a745;
+$cyan: #17a2b8;
+$lightgray: #909090;
+
+// Color map
+$colors: (
+        "primary": $blue,
+        "secondary": $gray,
+        "success": $green,
+        "info": $cyan,
+        "warning": $orange,
+        "danger": $red,
+        "gray": $gray,
+        "lightgray": $lightgray,
+        "black": $black
+);

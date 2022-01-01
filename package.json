@@ -1,0 +1,39 @@
+{
+  "name": "php_project",
+  "version": "1.1.0",
+  "description": "Project PHP for Thomas More - 2ITF",
+  "main": "index.js",
+  "scripts": {
+    "watch": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jkwadraat/php_project.git"
+  },
+  "keywords": [
+    "PHP",
+    "Thomas",
+    "More",
+    "2ITF"
+  ],
+  "author": "Patrick Verhaert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkwadraat/php_project/issues"
+  },
+  "homepage": "https://github.com/jkwadraat/php_project#readme",
+  "devDependencies": {
+    "@lipemat/css-mqpacker": "^8.0.1",
+    "browser-sync": "^2.26.13",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-dart-sass": "^1.0.2",
+    "gulp-connect-php": "^1.0.3",
+    "gulp-newer": "^1.4.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "jquery": "^3.6.0"
+  }
+}

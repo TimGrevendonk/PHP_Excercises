@@ -1,0 +1,27 @@
+pre, code {
+  font-family: $monospace;
+}
+
+pre {
+  border-left: .1 * $font-default solid $green;
+  background-color: rgba($green, .05);
+  line-height: 1.4 * $font-default;
+  overflow: auto;
+  padding: $font-default;
+
+  @each $class, $name in $colors {
+    &.pre-#{$class} {
+      border-left-color: $name;
+      background-color: rgba($name, .05);
+    }
+  }
+}
+
+code {
+  color: $green;
+}
+
+mark {
+  background: rgba($orange, .2);
+  padding: 0 (.5 * $font-default);
+}
